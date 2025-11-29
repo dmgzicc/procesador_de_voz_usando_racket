@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+.env
+venv/
+
+# Racket (Archivos compilados)
+compiled/
+*.zo
+*.dep
+
+# VS Code
+.vscode/
