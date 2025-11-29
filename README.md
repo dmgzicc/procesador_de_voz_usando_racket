@@ -1,8 +1,13 @@
-# Procesador de Señales Digitales (Paradigma Funcional)
+# Procesador de Señales Digitales (Paradigma funcional)
 
-Este proyecto implementa un sistema de análisis de audio en tiempo real capaz de discriminar entre Voz Humana y Golpes Secos (percusiones).
+Este proyecto implementa un sistema de análisis de audio en tiempo real capaz de discriminar entre voz humana y sonidos de golpes ambientales (percusiones).
 
-Combina la versatilidad de Python para la captura de audio y visualización, con la robustez matemática de Racket para el procesamiento de señales bajo el Paradigma Funcional.
+## Demo del Sistema
+
+![Interfaz Gráfica del Procesador](img/demo_gui.png)
+*Figura 1: Visualización del espectro y detección de voz en tiempo real.*
+
+Combina la versatilidad de Python para la captura de audio y visualización, con la robustez matemática de Racket para el procesamiento de señales bajo el paradigma funcional.
 
 ## Características Principales
 
@@ -29,7 +34,7 @@ pip install sounddevice numpy matplotlib
 
 ## Configuración
 
-Antes de ejecutar, asegúrate de que Python sepa dónde está instalado Racket.
+Antes de ejecutar, verificar de que Python sepa dónde está instalado Racket en tú sistema.
 
 1. Abre el archivo 'main_gui.py'.
 2. Busca la variable 'RACKET_CMD' y ajusta la ruta según tu sistema operativo:
