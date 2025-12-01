@@ -9,7 +9,7 @@ Este proyecto implementa un sistema de análisis de audio en tiempo real capaz d
 
 Combina la versatilidad de Python para la captura de audio y visualización, con la robustez matemática de Racket para el procesamiento de señales bajo el paradigma funcional.
 
-## Características Principales
+## Características principales
 
 - **Arquitectura**
   - **Python (Cliente):** Interfaz gráfica (Tkinter), captura de micrófono (SoundDevice) y visualización (Matplotlib).
@@ -74,6 +74,6 @@ El sistema funciona mediante un Pipeline de Comunicación vía JSON:
 - voice-processor.rkt: Script de Racket. Contiene toda la lógica matemática funcional.
 
 ---
-Autor: Diego Domínguez Palacios
+Autor: Diego Domínguez Palacios & Eduardo Mora Huerta
 Materia: Lenguajes de programación
-Fecha: 29 de noviembre del 2025
+Última actualización: 30 de noviembre del 2025

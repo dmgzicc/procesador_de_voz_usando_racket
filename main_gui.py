@@ -34,7 +34,7 @@ class AudioAnalyzerGUI:
         # --- INTERFAZ GRÁFICA ---
         
         # 1. Título
-        lbl_title = tk.Label(root, text="Análisis Espectral en tiempo Real", font=("Arial", 16, "bold"))
+        lbl_title = tk.Label(root, text="Análisis espectral en tiempo real", font=("Arial", 16, "bold"))
         lbl_title.pack(pady=10)
 
         # 2. Gráfica (Matplotlib embed)

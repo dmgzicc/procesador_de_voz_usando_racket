@@ -4,12 +4,12 @@
 
 ;; --- CONSTANTES ---
 (define RMS-THRESHOLD 0.015)   ; Umbral de silencio
-(define ZCR-THRESHOLD 120)     ; Umbral de cruces por cero (Aumentado ligeramente para tolerar S, F, Z)
+(define ZCR-THRESHOLD 120)     ; Umbral de cruces por cero 
 (define PEAK-THRESHOLD 0.06)   ; Umbral de volumen para considerar algo "Fuerte"
 (define FFT-SIZE 512)          ; Tamaño de ventana para el espectro
 
 ;; --- FFT MANUAL (Algoritmo Cooley-Tukey Funcional) ---
-;; Implementación pura para no depender de math/fft
+;; Implementación sin math/fft
 (define (pure-fft input-vector)
   (define n (vector-length input-vector))
   (if (= n 1)
@@ -51,11 +51,11 @@
                   (loop (cdr lst) curr count)))))))
 
 ;; LÓGICA DE DETECCIÓN
-;; Voz: Tiene volumen y es "suave" (pocos cruces por cero)
+;; Voz: 
 (define (detect-voice rms zcr) 
   (if (and (> rms RMS-THRESHOLD) (< zcr ZCR-THRESHOLD)) 1 0))
 
-;; Candidato a Golpe: Simplemente algo con mucho volumen
+;; Posible golpe
 (define (detect-loud-peak rms) 
   (if (> rms PEAK-THRESHOLD) 1 0))
 
@@ -81,13 +81,10 @@
       (define spectrum-mags 
         (map magnitude (vector->list (vector-take spectrum-complex (quotient FFT-SIZE 2)))))
 
-      ;; 3. Lógica de Decisión (SOLUCIÓN A TU PROBLEMA)
+      ;; 3. Lógica de Decisión
       (define is_voice (detect-voice rms zcr))
       (define is_loud (detect-loud-peak rms))
       
-      ;; Definición de Golpe FINAL:
-      ;; Es golpe SI es fuerte Y NO ha sido identificado como voz.
-      ;; Esto evita que las vocales fuertes (que tienen bajo ZCR) se marquen como golpe.
       (define final_is_peak 
         (if (and (= is_loud 1) (= is_voice 0)) 
             1 
