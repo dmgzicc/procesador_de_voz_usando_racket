@@ -45,7 +45,7 @@ class AudioAnalyzerGUI:
         self.ax.set_title("Espectro FFT (desde Racket)")
         self.line, = self.ax.plot([], [], color="#fbff00", lw=1) # Línea verde estilo osciloscopio
         
-        # Fondo negro para look "hacker"
+        # Fondo negro"
         self.ax.set_facecolor('black')
         self.fig.patch.set_facecolor('#f0f0f0')
 
@@ -53,7 +53,7 @@ class AudioAnalyzerGUI:
         self.canvas.draw()
         self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
 
-        # 3. Etiqueta de Predicción (La parte clave)
+        # 3. Etiqueta de predicción (La parte clave)
         self.lbl_prediction = tk.Label(root, text="Esperando...", font=("Courier", 24, "bold"), fg="gray")
         self.lbl_prediction.pack(pady=20)
         
@@ -134,8 +134,6 @@ class AudioAnalyzerGUI:
                 if spectrum:
                     # --- CAMBIO PARA CENTRAR EL ESPECTRO ---
                     
-                    # Creamos un efecto espejo: invertimos la lista y la pegamos al principio
-                    # Así tenemos: [Frecuencias Negativas] <--- 0 ---> [Frecuencias Positivas]
                     full_spectrum = spectrum[::-1] + spectrum 
                     
                     # El eje X ahora va desde -22050 Hz hasta +22050 Hz
